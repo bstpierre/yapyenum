@@ -1,0 +1,27 @@
+This module provides named enumerations for python.
+
+Unlike other implementations that I have seen, this is *not* an anonymous
+enumeration. To use it derive from the Enumeration class provided in
+enum.py and list the names of the enum members in the class member _enum_.
+
+The enum is itself a singleton class. It tries to be immutable via
+__slots__ and by refusing to allow its members to be changed.
+
+Enum members are an integer subclass with a "name" property and that
+knows how to pretty print itself. The enum values are interchangeable
+with integers, which may or may not be what you want.
+
+The class supports membership ("FOO in MyEnum") and mapping a
+non-instance-member value to a name. (I.e. if FOO uses the integer value
+1, then MyEnum.name(1) returns "FOO".)
+
+Tested on 2.4.6, 2.5.2, 2.6.2, on a combination of debian sarge, etch,
+lenny, and ubuntu 9.04.
+
+There are obvious capabilities that could be added but this does all
+that I need so far. Patches will be happily accepted.
+
+Permissive license (MIT). Have fun.
+
+-Brian St. Pierre
+Blakita Softare LLC
